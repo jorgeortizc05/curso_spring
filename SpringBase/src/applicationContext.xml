@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="
+    http://www.springframework.org/schema/beans   
+    http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
+    http://www.springframework.org/schema/context 
+    http://www.springframework.org/schema/context/spring-context-3.1.xsd">
+
+	<!-- Para llamar a mi archivo datosEmpresa.propiedades -->
+	<context:property-placeholder location="classpath:datosEmpresa.propiedades"/>
+
+	<!-- Creacion de la dependencia para la inyeccion -->
+	<bean id="miInforme" class="casaortiz.jorge.IoC.Informe">
+
+	</bean>
+
+	<!--Injeccion: Metodo constructor -->
+	<!-- Singleton: comparte el mismo espacio en memoria, prototype: crea nuevos espacios de memoria -->
+	<bean id="miJefeEmpleado" class="casaortiz.jorge.IoC.JefeEmpleado" init-method="initBean" destroy-method="destroyBean"> <!-- scope="prototype" por defecto es singleton-->
+		<constructor-arg ref="miInforme"></constructor-arg>
+		<!-- Inyeccion por campos -->
+		<property name="email" value="${email}"></property>
+		<property name="nombreEmpresa" value="${nombreEmpresa}"></property>
+	</bean>
+
+	<!--Inyeccion: Metodo set -->
+	<bean id="miSecretarioEmpleado"
+		class="casaortiz.jorge.IoC.SecretarioEmpleado">
+
+		<property name="informeNuevo" ref="miInforme"></property>
+		<!-- Inyeccion por campos -->
+		<property name="email" value="secretaria@casaortiz.com"></property>
+		<property name="nombreEmpresa" value="Casa Ortiz"></property>
+
+	</bean>
+
+</beans>
