@@ -1,6 +1,7 @@
 package casaortiz.jorge.annotations;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
 //Creo la annotations con @component
@@ -8,6 +9,8 @@ import org.springframework.stereotype.Component;
 public class ComercialExperimentado implements Empleados {
 	
 	@Autowired //Inyeccion de dependencias: aqui es mas facil, sin constructor ni setter
+	@Qualifier("informeFinancieroTrim4") //se creo varias clases que llama a la misma interfaz GeneracionInformeFinanciero
+										//con Qualifier llamo a mi bean que voy a utilizar ex: informeFinancieroTrim3
 	private GeneracionInformeFinanciero nuevoInforme;
 	
 	/*//Inyectamos con @Autowired: este es el metodo constructor
