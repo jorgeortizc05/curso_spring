@@ -8,8 +8,6 @@
     http://www.springframework.org/schema/context 
     http://www.springframework.org/schema/context/spring-context-3.1.xsd">
 
-	<!-- Para llamar a mi archivo datosEmpresa.propiedades -->
-	<!-- Vamos a utilizar java annotations -->
 	<context:component-scan base-package="casaortiz.jorge.annotations"></context:component-scan>
 
 </beans>
