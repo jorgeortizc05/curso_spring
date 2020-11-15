@@ -18,7 +18,6 @@ public class UsoAnnotations {
 		
 		System.out.println(Juan.getTareas());
 		System.out.println(Juan.getInformes());*/
-		//3. Cerrar el contexto
 		
 		//aqui uso la llamada del @Bean
 		Empleados empleado = contexto.getBean("directorFinanciero", Empleados.class);
@@ -26,6 +25,7 @@ public class UsoAnnotations {
 		System.out.println(empleado.getTareas());
 		System.out.println(empleado.getInformes());
 		
+		//3. Cerrar el contexto
 		contexto.close();
 
 	}
