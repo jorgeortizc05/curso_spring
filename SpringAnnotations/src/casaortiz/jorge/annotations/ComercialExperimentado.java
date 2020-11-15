@@ -1,5 +1,8 @@
 package casaortiz.jorge.annotations;
 
+import javax.annotation.PostConstruct;
+import javax.annotation.PreDestroy;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
@@ -22,6 +25,16 @@ public class ComercialExperimentado implements Empleados {
 	}*/
 	
 	
+	//Ciclo de vida del bean. Aunque no le llames a este bean, se ejecutara
+	@PostConstruct
+	public void ejecutaDespuesCreacion() {
+		System.out.println("Ejecutado tras creacion de bean");
+	}
+	
+	@PreDestroy
+	public void ejecutaAntesDestruccion() {
+		System.out.println("Ejecutado antes de la destruccion");
+	}
 	
 	public ComercialExperimentado() {
 		
