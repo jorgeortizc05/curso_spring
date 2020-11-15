@@ -36,7 +36,7 @@ public class ComercialExperimentado implements Empleados {
 	@Override
 	public String getTareas() {
 		// TODO Auto-generated method stub
-		return "Vender, vender y vender mÃ¡s";
+		return "Vender, vender y vender más";
 	}
 
 	@Override
